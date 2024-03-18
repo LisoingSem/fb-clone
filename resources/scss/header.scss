@@ -1,0 +1,115 @@
+nav {
+    &.navbar-sticky {
+        width: 100%;
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        animation: fadeInDown 0.7s ease-in-out;
+        box-shadow: 14px 14px 60px 0 rgb(80 20 173 / 6%);
+        backdrop-filter: blur(50px);
+
+        .navbar {
+            height: fit-content;
+            grid-template-rows: repeat(1, minmax(0, 1fr));
+            .navbar-logo {
+                display: none;
+            }
+        }
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, -100%, 0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+@media (max-width: 899px) {
+    nav {
+        .navbar {
+
+            .toggle-menu {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            &-logo {
+                justify-content: center;
+            }
+
+            .bg {
+                background-color: rgba(254, 254, 254, 0.694);
+                width: 100%;
+                z-index: 99;
+                height: 100vh;
+                backdrop-filter: blur(4px);
+                position: absolute;
+                top: 0;
+                left: -100%;
+
+                .close-menu {
+                    position: fixed;
+                    z-index: 9999;
+                    top: 50px;
+                    right: 50px;
+                }
+            }
+
+            .navbar-menu-wrapper {
+                display: block;
+                position: fixed;
+                top: 0%;
+                width: 100%;
+                height: 100vh;
+                left: -100%;
+                z-index: 999;
+                margin: 110px 0;
+
+                .navbar-menu-logo {
+                    display: flex;
+                    justify-content: center;
+                    align-self: center;
+                    gap: 10px;
+                    img {
+                        height: 45px;
+                        margin-top: 11px;
+                    }
+                    span {
+                        font-family: "Protest Guerrilla", sans-serif;
+                        font-weight: 200;
+                        font-style: normal;
+                        font-size: 50px;
+                    }
+                }
+
+                .navbar-menu {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    li {
+                        display: block;
+
+                        a {
+                            padding: 25px 20px 10px 20px;
+                            color: black;
+                            font-size: 25px;
+                            &.active {
+                                &:is(.dark) {
+                                    background-color: aliceblue;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
